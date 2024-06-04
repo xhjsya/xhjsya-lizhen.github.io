@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+<style>
+	body {
+	    font-family: Arial, sans-serif;
+	    margin: 0;
+	    padding: 0;
+	}
+	
+	header {
+	    background-color: #333;
+	    color: #fff;
+	    padding: 10px 0;
+	}
+	
+	nav ul {
+	    list-style-type: none;
+	    margin: 0;
+	    padding: 0;
+	}
+	
+	nav ul li {
+	    display: inline;
+	    margin-right: 20px;
+	}
+	
+	nav ul li a {
+	    color: #fff;
+	    text-decoration: none;
+	}
+	
+	.section {
+	    padding: 20px;
+	}
+	
+	.assignment {
+	    display: inline-block;
+	    margin-right: 20px;
+	}
+	
+	.assignment img {
+	    width: 200px;
+	    height: auto;
+	}
+	
+	.profile-info {
+	    text-align: center;
+	}
+	footer {
+	    position: fixed;
+	    left: 0;
+	    bottom: 0;
+	    width: 100%;
+	    background-color: #333;
+	    color: #fff;
+	    text-align: center;
+	    padding: 10px 0;
+	}
+	.assignment img {
+	    width: 160px; /* 设置图片宽度为200像素 */
+	    height: 200px; /* 让高度自适应，保持图片比例 */
+	}
+	body {
+	    background-image: url('JavaScript8_1/img/bg.png');
+	    background-size: cover;
+	    background-repeat: no-repeat;
+	    background-attachment: fixed;
+	}
+	a {
+	  text-decoration: none;
+	}
+	header, footer {
+	    background-color: rgba(51, 51, 51, 0.5); /* 使用rgba来设置背景色的透明度 */
+	}
+</style>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;李臻</li>
+				<li>219971116</li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="home" class="section">
+        <h1 style="color: #fff;">欢迎来到我的个人网站</h1>
+        <p style="color: #fff;">在这里，您可以找到有关我和我最新作业的信息。</p>
+    </div>
+
+    <div id="assignments" class="section">
+        <h2 style="color: #fff;">作业</h2>
+        <div class="assignment" id="assignment1">
+            <a href="JavaScript2_1/work2.html">
+				<img src="img/work1.png" >
+				<p style="color: #fff;">练习1 使用JavaScript程序打印图形</p>
+			</a>
+        </div>
+        <div class="assignment" id="assignment2">
+			<a href="JavaScript7_1/test.html">
+				<img src="img/work2.png" >
+				<p style="color: #fff;">练习2 使用DOM操纵图片</p>
+			</a>
+        </div>
+        <div class="assignment" id="assignment3">
+			<a href="JavaScript8_1/work3.html">
+				<img src="img/work3.png" >
+				<p style="color: #fff;">练习3 用键盘操纵坦克移动</p>
+			</a>
+        </div>
+        <div class="assignment" id="assignment4">
+			<a href="JavaScript9_2/experiment4.html">
+				<img src="JavaScript9_2/img/experiment4.png" >
+				<p style="color: #fff;">实验4 制作Web页面广告</p>
+			</a>
+        </div>
+	<div class="assignment" id="assignment5">
+			<a href="JavaScript11_1/index.html">
+				<img src="img/work4.png" >
+				<p style="color: #fff;">练习4 使用jQuery修改表格</p>
+			</a>
+        </div>
+	<div class="assignment" id="assignment6">
+			<a href="JavaScript11_2/test.html">
+				<img src="img/work5.png" >
+				<p style="color: #fff;">练习5 使用jQuery制作游戏角色</p>
+			</a>
+        </div>
+	</div>
+	    <div class="assignment" id="assignment7">
+			<a href="JavaScript13_1/register.html">
+				<img src="JavaScript13_1/img/bg1.jpg" >
+				<p style="color: #fff;">实验5 用户注册验证的设计与实现</p>
+			</a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 我的个人网站</p>
+    </footer>
+</body>
+</html>

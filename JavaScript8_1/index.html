@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<button id="btn1" type="button" onclick="show1()">测试按钮1</button>
+		<button id="btn2" type="button">测试按钮2</button>
+		
+		
+		<script>
+			//DOM0
+			//方法一:HTML内联属性，利用标签中的属性进行事件注册
+			function show1(){
+				alert("与html属性关联，实现事件处理!");
+			}
+			//方法二:纯js，将处理程序的函数赋值给对象的事件属性
+			let btn2 = document.querySelector("#btn2");
+			btn2.onclick = function(){
+				alert("纯js，将处理程序的函数赋值给对象的事件属性!");
+			}
+			//DOM0级缺点：事件会发生覆盖
+			
+			//DOM2
+			//事件监听注册，注册事件
+			
+			
+			
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

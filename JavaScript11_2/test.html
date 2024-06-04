@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: black; /* 将背景设置为黑色 */
+    }
+    
+    #player {
+        width: 200px;
+        height: 150px;
+        background-color: red; /* 设置角色的样式 */
+        position: absolute;
+    }
+</style>
+<body>
+    <div id="game-container">
+        <img id="player" src="img/player_right.gif" alt="Player">
+    </div>
+</body>
+<script>
+    $(document).ready(function() {
+        var player = $("#player"); // 获取玩家对象
+    
+        $(document).on("click", function(event) { // 当文档被点击时执行函数
+            var clickX = event.clientX; // 获取鼠标点击的X坐标
+            var clickY = event.clientY; // 获取鼠标点击的Y坐标
+    
+            var playerX = clickX - (player.width() / 2); // 计算玩家的X坐标
+            var playerY = clickY - (player.height() / 2); // 计算玩家的Y坐标
+    
+            var playerSrc = player.attr("src"); // 获取玩家图片的路径
+    
+            // 根据鼠标点击位置确定玩家应该面向的方向
+            if (clickX < player.offset().left + (player.width() / 2)) {
+                if (playerSrc !== "img/player_left.gif") {
+                    player.attr("src", "img/player_left.gif");
+                }
+            } else {
+                if (playerSrc !== "img/player_right.gif") {
+                    player.attr("src", "img/player_right.gif");
+                }
+            }
+    
+            player.stop().animate({ // 停止当前动画并开始新的动画
+                left: playerX, // 设置玩家的X坐标
+                top: playerY // 设置玩家的Y坐标
+            }, 1500); // 持续时间为1000毫秒（1秒）
+        });
+     });//219971116李臻
+
+</script>
+</html>

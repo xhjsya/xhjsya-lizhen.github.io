@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>广告页面</title>
+<style>
+    * {
+        margin: 0px;
+        padding: 0;
+    }
+    .content {
+        height: 300vh; /* 设置页面高度为3屏 */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .a {
+        background: #f0f0f0;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 50%;
+        height: 100%;
+    }
+    .dl1,.bu2,.bu3{
+        left: 0px;/* 左侧CSS */
+    }
+    .bu1,.dl2  {
+        right: 0; /* 右侧CSS */
+    }
+	.dl3 {
+	    position: fixed;
+		bottom: 0px;
+		right: 0px;
+		opacity: 0;/* 初始状态下完全透明 */
+		transition: opacity 10s ease; /* 添加过渡效果 */
+	}
+	.bo {
+	    height: 233px;
+	    width: 333px;
+	    position: relative; /* 添加相对定位 */
+	}
+	.bu1,.bu2,.bu3{
+		position: absolute; /* 使用绝对定位 */
+		top: 0; /* 按钮放在图片上方 */
+	}
+	.dl1,.dl2{
+		position: fixed;
+		top: 0px;
+	}
+	.l,.r{
+	    height: 333px;
+	    width: 90px;
+	    position: relative; /* 添加相对定位 */
+	}
+</style>
+</head>
+<body>
+<div class="content">
+    <div class="dl1">
+        <img src="img/e4_left.png" class="l">
+        <button class="bu1" onclick="hideImage('dl1')">关闭</button>
+    </div>
+    <div class="a" id="advertisement">
+        <div class="b" id="advertisement" align="center">
+            <img src="img/e4_top.png" width="80%">
+            <p>这里是主要内容</p>
+        </div>
+    </div>
+    <div class="dl2">
+        <img src="img/e4_right.png" class="r">
+        <button class="bu2" onclick="hideImage('dl2')">关闭</button>
+    </div>
+	
+	<div class="dl3">
+	    <img src="img/e4_bottom.png" class="bo">
+	    <button class="bu3" onclick="hideImage1('dl3')">关闭</button>
+	</div>
+</div>
+
+<script>
+    //单击关闭按钮时隐藏图像
+    function hideImage(elementId) {
+        var element = document.querySelector('.' + elementId);
+        element.style.display = 'none';
+    }
+	// 单击关闭按钮时隐藏图像
+	function hideImage1(elementId) {
+	    var element = document.querySelector('.' + elementId);
+	    // 将透明度设置为0，使其淡出
+	    element.style.opacity = '0';
+	    // 在淡出完成后隐藏元素
+	    setTimeout(function() {
+	        element.style.display = 'none';
+	    }, 500); // 延迟500毫秒执行，与过渡效果持续时间一致
+	}
+	// 在页面加载后触发动画效果
+	window.onload = function() {
+	    var element = document.querySelector('.dl3');
+	    // 使用定时器延迟执行动画
+	    setTimeout(function() {
+	        // 将透明度设置为1，使其淡入
+	        element.style.opacity = '1';
+	    }, 100); // 延迟100毫秒执行，确保在页面加载之后
+	};
+</script>
+</body>
+</html>

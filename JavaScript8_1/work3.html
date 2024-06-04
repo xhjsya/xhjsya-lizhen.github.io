@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>让坦克开起来</title>
+    <style type="text/css">
+        input {
+            font-size: 26px;
+            margin-top: 20px;
+        }
+        body {
+            background-image: url(img/grassland.png);
+        }
+        #mytank {
+            position: absolute;
+            left: 10px;
+            top: 100px;
+            transition: margin 0.4s ease; /* 添加过渡效果 */
+        }
+    </style>
+</head>
+<body>        
+    <img id="mytank" src="img/right.png"/>
+    <script>
+		//219971116李臻
+		
+        // 获取页面元素
+        const html = document.querySelector('html');
+        const tank = document.querySelector('#mytank');
+        // 坦克大小
+        const tankWidth = tank.offsetWidth;
+        const tankHeight = tank.offsetHeight;
+        // 水平和垂直方向的步长
+        const step = 80;
+        // 初始位置
+        let x = 0;
+        let y = 0;
+        // 监听键盘事件
+        html.addEventListener('keydown', (e) => {
+            // W----87
+            // D----68
+            // S----83
+            // A----65
+            if (e.keyCode === 87 && y > -1) {
+                // W按钮，向上移动
+                y--;
+                tank.style.marginTop = `${step * y}px`;
+                tank.setAttribute('src', 'img/up.png');
+            } else if (e.keyCode === 68 && x < 17) {
+                // D按钮，向右移动
+                x++;
+                tank.style.marginLeft = `${step * x}px`;
+                tank.setAttribute('src', 'img/right.png');
+            } else if (e.keyCode === 83 && y < 6.5) {
+                // S按钮，向下移动
+                y++;
+                tank.style.marginTop = `${step * y}px`;
+                tank.setAttribute('src', 'img/down.png');
+            } else if (e.keyCode === 65 && x > 0) {
+                // A按钮，向左移动
+                x--;
+                tank.style.marginLeft = `${step * x}px`;
+                tank.setAttribute('src', 'img/left.png');
+            }
+        });
+    </script>
+</body>
+</html>

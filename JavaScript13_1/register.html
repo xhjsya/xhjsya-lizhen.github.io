@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客网站注册</title>
+	<style>
+		body{
+			background-image: url("img/bg1.jpg");
+			background-size: 100% 800px;
+		}
+		.register {
+			 background-color: rgba(244, 244, 244, 0.2);
+			border: 2px solid #ccc; /* 设置边框，2px 宽，颜色为灰色 */
+			padding: 20px;
+		    position: absolute;
+		    left: 60%; 
+		    top: 45%;
+		    transform: translateY(-50%);
+			width: 350px;
+			border-radius: 10px;
+		}
+
+		#registerForm {
+		    padding: 20px;
+		    background-color: rgba(244, 244, 244, 0.4);
+		    border-radius: 5px;
+		}
+		.form-group {
+		    margin-bottom: 20px;
+		}
+		label {
+		    display: block;
+		    font-weight: bold;
+		    margin-bottom: 5px;
+		}
+		input[type="text"],
+		input[type="email"],
+		input[type="password"] {
+		    width: 100%;
+		    padding: 10px;
+		    border: 1px solid #ccc;
+		    border-radius: 5px;
+		    box-sizing: border-box; 
+		}
+		.error {
+		    color: red;
+		    font-size: 12px;
+		}
+		button[type="submit"] {
+		    width: 100%;
+		    padding: 10px;
+		    background-color: #007bff;
+		    color: #fff;
+		    border: none;
+		    border-radius: 5px;
+		    cursor: pointer;
+		    transition: background-color 0.3s ease;
+		}
+		button[type="submit"]:hover {
+		    background-color: #0056b3;
+		}
+	</style>
+</head>
+<body>
+    <div class="register">
+        <h2>博客注册</h2>
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="username">用户名：</label>
+                <input type="text" id="username" name="username"><span id="show"></span>
+                <span class="error" id="username-error"></span>
+				<!-- class用于报错提示红框,id用于提示错误信息 -->
+            </div>
+            <div class="form-group">
+                <label for="email">电子邮件：</label>
+                <input type="email" id="email" name="email">
+                <span class="error" id="email-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="password">密码：</label>
+                <input type="password" id="password" name="password">
+                <span class="error" id="password-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">确认密码：</label>
+                <input type="password" id="confirm-password" name="confirm-password">
+                <span class="error" id="confirm-password-error"></span>
+            </div>
+            <button type="submit">注册</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery链接 -->
+    <script src="script.js"></script> <!-- 自定义JavaScript链接 -->
+	<script>
+		$(document).ready(function() {
+		    // 注册表单提交事件
+		    $('#registerForm').submit(function(event) {
+		        // 阻止表单默认提交行为
+		        event.preventDefault();
+		        // 获取输入框的值
+		        var username = $('#username').val().trim();
+		        var email = $('#email').val().trim();
+		        var password = $('#password').val().trim();
+		        var confirmPassword = $('#confirm-password').val().trim();
+		        // 验证用户名非空
+		        if (username === '') {
+		            $('#username-error').text('用户名不能为空');
+		            return;
+		        } else {
+		            $('#username-error').text('');
+		        }
+		
+		        // 验证邮箱非空和格式
+		        if (email === '') {
+		            $('#email-error').text('邮箱不能为空');
+		            return;
+		        } else if (!isValidEmail(email)) {
+		            $('#email-error').text('邮箱格式不正确');
+		            return;
+		        } else {
+		            $('#email-error').text('');
+		        }
+		        // 验证密码非空和长度
+		        if (password === '') {
+		            $('#password-error').text('密码不能为空');
+		            return;
+		        } else if (password.length < 6) {
+		            $('#password-error').text('密码长度不能少于6位');
+		            return;
+		        } else {
+		            $('#password-error').text('');
+		        }
+		        // 验证确认密码
+		        if (confirmPassword === '') {
+		            $('#confirm-password-error').text('确认密码不能为空');
+		            return;
+		        } else if (confirmPassword !== password) {
+		            $('#confirm-password-error').text('确认密码与密码不一致');
+		            return;
+		        } else {
+		            $('#confirm-password-error').text('');
+		        } 
+		        // 如果所有验证通过，可以提交表单
+		        alert('注册成功！');
+		        // 这里可以添加提交表单的逻辑
+		    });
+		
+		    // 邮箱格式验证函数
+		    function isValidEmail(email) {
+				匹配电子邮件地址的正则表达式
+		        var emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+		        return emailRegex.test(email);
+		    }
+		});
+
+	</script>
+	<script>
+		var nameinput=document.getElementById("username");
+		nameinput.addEventListener("blur",function(){
+			var xhr = new XMLHttpRequest();
+			//apifox接口的url
+			var url="http://127.0.0.1:4523/m2/4538600-4186397-default/178193771";
+			url+="?username="+nameinput.value;
+			xhr.open("GET",url,true);
+			xhr.send();
+			xhr.onreadystatechange=function (){
+				//判断状态码
+				if(xhr.readyState===4&&xhr.status===200){
+					var result = xhr.responseText;
+					//测试返回的值
+					var rel = JSON.parse(result).username;
+					
+					if(rel=="1"){
+						document.getElementById("show").innerHTML="×";
+					}else{
+						document.getElementById("show").innerHTML="√";
+					}
+				}
+			}//219971116李臻
+		});
+	</script>
+</body>
+</html>

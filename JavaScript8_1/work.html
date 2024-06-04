@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>让坦克开起来</title>
+		<style type="text/css">
+			input{
+				font-size:26px;
+				margin-top: 20px;
+			}
+			body{
+				background-image: url(img/grassland.png);
+			}
+			#mytank{
+				position: absolute;
+				left:10px;top:100px
+			}
+		</style>
+	</head>
+	<body>		
+		<img id="mytank" src="img/right.png"/>
+		<script>
+			// 编写代码，让坦克能上下左右移动
+			
+			//坦克向上的图片是up.png
+			//坦克向下的图片是down.png
+			//坦克向左的图片是left.png
+			//坦克向右的图片是right.png
+			// 获取页面元素
+			const html = document.querySelector('html')
+			const tank =document.querySelector('#mytank')
+			// 水平方向
+			let x =0
+			let y = 0
+			// 监听键盘事件
+			html.addEventListener('keydown',(e)=>{
+				// W----87
+				// D----68
+				// S----83
+				// A----65
+				if(e.keyCode == 87) {
+					// W按钮
+					y = y-1
+					tank.style.marginTop = `${80*y}px`
+				}else if(e.keyCode == 68){
+					console.log('D')
+					x = x + 1
+					tank.style.marginLeft = `${80*x}px`
+				}else if(e.keyCode == 83) {
+					console.log('S')
+					y = y + 1
+					tank.style.marginTop = `${80*y}px`
+					
+				}else if(e.keyCode == 65) {
+					console.log('A')
+					x = x-1
+					tank.style.marginLeft = `${80*x}px`
+				}
+				console.log(x,y)
+			})
+		</script>
+	</body>
+</html>

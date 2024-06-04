@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>广告页面</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    * {
+        margin: 0px;
+        padding: 0;
+    }
+    .content {
+        height: 300vh; /* 设置页面高度为3屏 */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .a {
+        background: #f0f0f0;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 50%;
+        height: 100%;
+    }
+    .dl1 {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+    }
+    .l {
+        height: 333px;
+        width: 90px;
+        position: relative; /* 添加相对定位 */
+    }
+    .bu1 {
+        position: absolute; /* 使用绝对定位 */
+        top: 0; /* 按钮放在图片上方 */
+        right: 0; /* 按钮放在图片右侧 */
+    }
+    .dl2 {
+        position: fixed;
+        top: 0px;
+        right: 0px;
+    }
+    .r {
+        height: 333px;
+        width: 90px;
+        position: relative; /* 添加相对定位 */
+    }
+    .bu2 {
+        position: absolute; /* 使用绝对定位 */
+        top: 0; /* 按钮放在图片上方 */
+        left: 0; /* 按钮放在图片左侧 */
+    }
+	
+	.dl3 {
+	    position: fixed;
+		bottom: 0px;
+	    /* top: 0px; */
+		right: 0px;
+	}
+	.bo {
+	    height: 233px;
+	    width: 333px;
+	    position: relative; /* 添加相对定位 */
+	}
+	.bu3 {
+	    position: absolute; /* 使用绝对定位 */
+	    top: 0; /* 按钮放在图片上方 */
+	    right: 0; /* 按钮放在图片右侧 */
+	}
+</style>
+</head>
+<body>
+<div class="content">
+    <div class="dl1">
+        <img src="img/left.png" class="l">
+        <button class="close-btn bu1" onclick="hideImage('dl1')">关闭</button>
+    </div>
+    <div class="a" id="advertisement">
+        <div class="b" id="advertisement" align="center">
+            <img src="img/top.png" width="80%">
+            <p>这里是主要内容</p>
+        </div>
+    </div>
+    <div class="dl2">
+        <img src="img/right.png" class="r">
+        <button class="close-btn bu2" onclick="hideImage('dl2')">关闭</button>
+    </div>
+	
+	<div class="dl3">
+	    <img src="img/bottom.png" class="bo">
+	    <button class="close-btn bu2" onclick="hideImage('dl3')">关闭</button>
+	</div>
+	
+</div>
+
+<script>
+    //单击关闭按钮时隐藏图像
+    function hideImage(elementId) {
+        var element = document.querySelector('.' + elementId);
+        element.style.display = 'none';
+    }
+</script>
+</body>
+</html>

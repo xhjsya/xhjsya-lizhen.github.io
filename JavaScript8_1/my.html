@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+<style>
+	body {
+	    font-family: Arial, sans-serif;
+	    margin: 0;
+	    padding: 0;
+	}
+	
+	header {
+	    background-color: #333;
+	    color: #fff;
+	    padding: 10px 0;
+	}
+	
+	nav ul {
+	    list-style-type: none;
+	    margin: 0;
+	    padding: 0;
+	}
+	
+	nav ul li {
+	    display: inline;
+	    margin-right: 20px;
+	}
+	
+	nav ul li a {
+	    color: #fff;
+	    text-decoration: none;
+	}
+	
+	.section {
+	    padding: 20px;
+	}
+	
+	.assignment {
+	    display: inline-block;
+	    margin-right: 20px;
+	}
+	
+	.assignment img {
+	    width: 200px;
+	    height: auto;
+	}
+	
+	.profile-info {
+	    text-align: center;
+	}
+	footer {
+	    position: fixed;
+	    left: 0;
+	    bottom: 0;
+	    width: 100%;
+	    background-color: #333;
+	    color: #fff;
+	    text-align: center;
+	    padding: 10px 0;
+	}
+	.assignment img {
+	    width: 160px; /* 设置图片宽度为200像素 */
+	    height: 200px; /* 让高度自适应，保持图片比例 */
+	}
+	body {
+	    background-image: url('img/bg.png');
+	    background-size: cover;
+	    background-repeat: no-repeat;
+	    background-attachment: fixed;
+	}
+	a {
+	  text-decoration: none;
+	}
+	header, footer {
+	    background-color: rgba(51, 51, 51, 0.5); /* 使用rgba来设置背景色的透明度 */
+	}
+</style>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;李臻</li>
+				<li>219971116</li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="home" class="section">
+        <h1 style="color: #fff;">欢迎来到我的个人网站</h1>
+        <p style="color: #fff;">在这里，您可以找到有关我和我最新作业的信息。</p>
+    </div>
+
+    <div id="assignments" class="section">
+        <h2 style="color: #fff;">最新作业</h2>
+        <div class="assignment" id="assignment1">
+            <a href="index.html">
+				<img src="img/work1.png" >
+				<p style="color: #fff;">作业 1 标题</p>
+			</a>
+        </div>
+        <div class="assignment" id="assignment2">
+			<a href="#">
+				<img src="img/work2.png" >
+				<p style="color: #fff;">作业 2 标题</p>
+			</a>
+        </div>
+        <div class="assignment" id="assignment3">
+			<a href="#">
+				<img src="" alt="暂时未完成" >
+				<p style="color: #fff;">作业 3 标题</p>
+			</a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 我的个人网站</p>
+    </footer>
+</body>
+</html>
